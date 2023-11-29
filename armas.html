@@ -24,19 +24,19 @@
 	       <audio id="sound2" src="123.mp3" preload="auto"></audio> 
 
 		</a-assets>
-			<a-marker id="#arma1" type="barcode" value="8">		
+			<a-marker id="mk1" type="barcode" value="8">		
           <a-entity     
                 gltf-model="#arma1" scale="0.09 0.09 0.09" rotation="40 85 40" position="0 0 0"
 				class="clickable" gesture-handler soundhandler>
           </a-entity>
       </a-marker>
-      <a-marker id="#arma2" type="barcode" value="4">		
+      <a-marker id="mk2" type="barcode" value="4">		
           <a-entity     
                 gltf-model="#arma2" scale="0.09 0.09 0.09" rotation="40 85 40" position="0 0 0"
 				class="clickable" gesture-handler soundhandler>
           </a-entity>
       </a-marker>
-      <a-marker id="#arma3" type="barcode" value="62">		
+      <a-marker id="mk3" type="barcode" value="62">		
           <a-entity     
                 gltf-model="#arma3" scale="0.09 0.09 0.09" rotation="40 85 40" position="0 0 0"
 				class="clickable" gesture-handler soundhandler>
@@ -55,15 +55,15 @@
 					   var entity = document.querySelector('#audio');
 					   var entity2 = document.querySelector('#audio2');
 					
-					 if (document.querySelector('#arma1').object3D.visible == true) {
+					 if (document.querySelector('mk1').object3D.visible == true) {
 						entity2.components.sound.pauseSound();
 						entity.components.sound.playSound();
 						 
-					} else if (document.querySelector('#arma2').object3D.visible == true) {
+					} else if (document.querySelector('#mk2').object3D.visible == true) {
 						entity.components.sound.pauseSound();
 						entity2.components.sound.playSound();
 						 
-				  } else if (document.querySelector('#arma3').object3D.visible == true) {
+				  } else if (document.querySelector('#mk3').object3D.visible == true) {
 						entity.components.sound.pauseSound();
 						entity2.components.sound.playSound();
 					}

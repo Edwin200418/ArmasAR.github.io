@@ -17,28 +17,32 @@
       
 		<a-assets>
         
-         <a-asset-item id="orchid" src="https://cdn.glitch.global/18425b32-fbee-4fdf-859a-d613aaf451f1/orchid.glb?v=1697549279587"></a-asset-item>
-         <a-asset-item id="flower" src="https://cdn.glitch.global/18425b32-fbee-4fdf-859a-d613aaf451f1/rosa.glb?v=1697635741918"></a-asset-item>
+         <a-asset-item id="arma1" src="https://cdn.glitch.global/2df98b53-504a-4d1c-a69a-a41eb44d7090/colonistcombat_shotgun.glb?v=1697051589891"></a-asset-item>
+         <a-asset-item id="arma2" src="https://cdn.glitch.global/2df98b53-504a-4d1c-a69a-a41eb44d7090/ump_45mm.glb?v=1697653931992"></a-asset-item>
+         <a-asset-item id="arma3" src="https://cdn.glitch.me/2df98b53-504a-4d1c-a69a-a41eb44d7090/mp7_submachine_gun.glb?v=1697579234671"></a-asset-item>
          <audio id="sound" src="123.mp3" preload="auto"></audio> 
 	       <audio id="sound2" src="123.mp3" preload="auto"></audio> 
 
 		</a-assets>
-			<a-marker id="orquidea" type="barcode" value="12">		
+			<a-marker id="#arma1" type="barcode" value="8">		
           <a-entity     
-                gltf-model="#orchid" scale="0.09 0.09 0.09" rotation="40 85 40" position="0 0 0"
+                gltf-model="#arma1" scale="0.09 0.09 0.09" rotation="40 85 40" position="0 0 0"
 				class="clickable" gesture-handler soundhandler>
           </a-entity>
       </a-marker>
-      
-      <a-marker id="rosa" type="barcode" value="20" >		
-          <a-entity
-                gltf-model="#flower" 
-                scale="4 4 4"
-                rotation="180 90 90"
-                position="0 0 0"
+      <a-marker id="#arma2" type="barcode" value="4">		
+          <a-entity     
+                gltf-model="#arma2" scale="0.09 0.09 0.09" rotation="40 85 40" position="0 0 0"
 				class="clickable" gesture-handler soundhandler>
           </a-entity>
       </a-marker>
+      <a-marker id="#arma3" type="barcode" value="62">		
+          <a-entity     
+                gltf-model="#arma3" scale="0.09 0.09 0.09" rotation="40 85 40" position="0 0 0"
+				class="clickable" gesture-handler soundhandler>
+          </a-entity>
+      </a-marker>
+    
 		<a-entity camera></a-entity>
 		<a-entity id="audio" sound="src: #sound" autoplay="false"></a-entity>
 		<a-entity id="audio2" sound="src: #sound2" autoplay="false"></a-entity>
@@ -51,17 +55,17 @@
 					   var entity = document.querySelector('#audio');
 					   var entity2 = document.querySelector('#audio2');
 					
-					 if (document.querySelector('#orquidea').object3D.visible == true) {
+					 if (document.querySelector('#arma1').object3D.visible == true) {
 						entity2.components.sound.pauseSound();
 						entity.components.sound.playSound();
 						 
-					} else if (document.querySelector('#rosa').object3D.visible == true) {
+					} else if (document.querySelector('#arma2').object3D.visible == true) {
 						entity.components.sound.pauseSound();
 						entity2.components.sound.playSound();
 						 
-				  	} else{
+				  } else if (document.querySelector('#arma3').object3D.visible == true) {
 						entity.components.sound.pauseSound();
-						entity2.components.sound.pauseSound();
+						entity2.components.sound.playSound();
 					}
 				 }
 			});

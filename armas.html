@@ -24,22 +24,19 @@
 	       <audio id="sound2" src="123.mp3" preload="auto"></audio> 
 
 		</a-assets>
-			<a-marker id="mk1" type="barcode" value="8">		
+			<a-marker id="mk1" type="barcode" value="8" raycaster="objects: .clickable">		
           <a-entity     
-                gltf-model="#arma1" scale="0.09 0.09 0.09" rotation="40 85 40" position="0 0 0"
-				class="clickable" gesture-handler soundhandler>
+                gltf-model="#arma1" scale="4 4 4" rotation="90 270 90" position="0 0 0" class="clickable" gesture-handler soundhandler>
           </a-entity>
       </a-marker>
-      <a-marker id="mk2" type="barcode" value="4">		
+      <a-marker id="mk2" type="barcode" value="4" raycaster="objects: .clickable">		
           <a-entity     
-                gltf-model="#arma2" scale="0.09 0.09 0.09" rotation="40 85 40" position="0 0 0"
-				class="clickable" gesture-handler soundhandler>
+                gltf-model="#arma2" scale="0.01 0.01 0.01" rotation="270 270 90" position="0 0 0" class="clickable" gesture-handler soundhandler>
           </a-entity>
       </a-marker>
-      <a-marker id="mk3" type="barcode" value="62">		
+      <a-marker id="mk3" type="barcode" value="62" raycaster="objects: .clickable">		
           <a-entity     
-                gltf-model="#arma3" scale="0.09 0.09 0.09" rotation="40 85 40" position="0 0 0"
-				class="clickable" gesture-handler soundhandler>
+                gltf-model="#arma3" scale="0.7 0.7 0.7" rotation="90 270 90" position="" class="clickable" gesture-handler soundhandler>
           </a-entity>
       </a-marker>
     
@@ -50,25 +47,7 @@
 		</a-scene>s
 		
 		<script>
-			AFRAME.registerComponent('soundhandler', {
-				tick: function () {
-					   var entity = document.querySelector('#audio');
-					   var entity2 = document.querySelector('#audio2');
-					
-					 if (document.querySelector('mk1').object3D.visible == true) {
-						entity2.components.sound.pauseSound();
-						entity.components.sound.playSound();
-						 
-					} else if (document.querySelector('#mk2').object3D.visible == true) {
-						entity.components.sound.pauseSound();
-						entity2.components.sound.playSound();
-						 
-				  } else if (document.querySelector('#mk3').object3D.visible == true) {
-						entity.components.sound.pauseSound();
-						entity2.components.sound.playSound();
-					}
-				 }
-			});
+			
 		</script>
 		
 	</body>

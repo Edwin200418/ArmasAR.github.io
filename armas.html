@@ -16,12 +16,14 @@
 		vr-mode-ui="enables:false" gesture-detector id="scene">
       
 		<a-assets>
-        
+         
          <a-asset-item id="arma1" src="https://cdn.glitch.global/2df98b53-504a-4d1c-a69a-a41eb44d7090/colonistcombat_shotgun.glb?v=1697051589891"></a-asset-item>
          <a-asset-item id="arma2" src="https://cdn.glitch.global/2df98b53-504a-4d1c-a69a-a41eb44d7090/ump_45mm.glb?v=1697653931992"></a-asset-item>
          <a-asset-item id="arma3" src="https://cdn.glitch.me/2df98b53-504a-4d1c-a69a-a41eb44d7090/mp7_submachine_gun.glb?v=1697579234671"></a-asset-item>
          <audio id="sound" src="123.mp3" preload="auto"></audio> 
 	       <audio id="sound2" src="123.mp3" preload="auto"></audio> 
+
+
 
 		</a-assets>
 			<a-marker id="mk1" type="barcode" value="8" raycaster="objects: .clickable">		
@@ -40,14 +42,41 @@
           </a-entity>
       </a-marker>
     
-		<a-entity camera></a-entity>
-		<a-entity id="audio" sound="src: #sound" autoplay="false"></a-entity>
+    <a-entity id="audio" sound="src: #sound" autoplay="false"></a-entity>
 		<a-entity id="audio2" sound="src: #sound2" autoplay="false"></a-entity>
+		<a-entity camera></a-entity>
+		
 			
 		</a-scene>s
 		
 		<script>
-			
+      AFRAME.registerComponent('soundhandler', {
+        tick: function () {
+          var entity = document.querySelector('#audio');
+          var entity2 = document.querySelector('#audio2');
+
+          if (document.querySelector('#mk1').object3D.visible == true) {
+            entity2.components.sound.pauseSound();
+            entity.components.sound.playSound();
+          } 
+          
+          else if (document.querySelector('#mk2').object3D.visible == true) {
+            entity.components.sound.pauseSound();
+            entity2.components.sound.playSound();
+          }
+          
+          else if (document.querySelector('#mk3').object3D.visible == true) {
+            entity.components.sound.pauseSound();
+            entity2.components.sound.playSound();
+          }
+          
+          else{
+            entity.components.sound.pauseSound();
+            entity2.components.sound.pauseSound();
+          }
+        }
+      });
+
 		</script>
 		
 	</body>

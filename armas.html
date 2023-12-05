@@ -20,8 +20,9 @@
          <a-asset-item id="arma1" src="https://cdn.glitch.global/2df98b53-504a-4d1c-a69a-a41eb44d7090/colonistcombat_shotgun.glb?v=1697051589891"></a-asset-item>
          <a-asset-item id="arma2" src="https://cdn.glitch.global/2df98b53-504a-4d1c-a69a-a41eb44d7090/ump_45mm.glb?v=1697653931992"></a-asset-item>
          <a-asset-item id="arma3" src="https://cdn.glitch.me/2df98b53-504a-4d1c-a69a-a41eb44d7090/mp7_submachine_gun.glb?v=1697579234671"></a-asset-item>
-         <audio id="sound" src="123.mp3" preload="auto"></audio> 
-	       <audio id="sound2" src="123.mp3" preload="auto"></audio> 
+         <audio id="sound1" src="MP7.mp3" preload="auto"></audio> 
+	       <audio id="sound2" src="UMP45.mp3" preload="auto"></audio> 
+         <audio id="sound3" src="MX.mp3" preload="auto"></audio>
 
 
 
@@ -42,8 +43,9 @@
           </a-entity>
       </a-marker>
     
-    <a-entity id="audio" sound="src: #sound" autoplay="false"></a-entity>
+    <a-entity id="audio1" sound="src: #sound1" autoplay="false"></a-entity>
 		<a-entity id="audio2" sound="src: #sound2" autoplay="false"></a-entity>
+    <a-entity id="audio3" sound="src: #sound3" autoplay="false"></a-entity>
 		<a-entity camera></a-entity>
 		
 			
@@ -52,27 +54,32 @@
 		<script>
       AFRAME.registerComponent('soundhandler', {
         tick: function () {
-          var entity = document.querySelector('#audio');
+          var entity1 = document.querySelector('#audio1');
           var entity2 = document.querySelector('#audio2');
+          var entity3 = document.querySelector('#audio3');
 
           if (document.querySelector('#mk1').object3D.visible == true) {
+            entity1.components.sound.playSound();
             entity2.components.sound.pauseSound();
-            entity.components.sound.playSound();
+            entity3.components.sound.pauseSound();
           } 
           
           else if (document.querySelector('#mk2').object3D.visible == true) {
-            entity.components.sound.pauseSound();
+            entity1.components.sound.pauseSound();
             entity2.components.sound.playSound();
+            entity3.components.sound.pauseSound();
           }
           
           else if (document.querySelector('#mk3').object3D.visible == true) {
-            entity.components.sound.pauseSound();
-            entity2.components.sound.playSound();
+            entity1.components.sound.pauseSound();
+            entity2.components.sound.pauseSound();
+            entity3.components.sound.playSound();
           }
           
           else{
-            entity.components.sound.pauseSound();
+            entity1.components.sound.pauseSound();
             entity2.components.sound.pauseSound();
+            entity3.components.sound.pauseSound();
           }
         }
       });

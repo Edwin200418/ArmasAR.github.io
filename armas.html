@@ -59,9 +59,9 @@
           var entity3 = document.querySelector('#audio3');
 
           if (document.querySelector('#mk1').object3D.visible == true) {
-            entity1.components.sound.playSound();
+            entity1.components.sound.pauseSound();
             entity2.components.sound.pauseSound();
-            entity3.components.sound.pauseSound();
+            entity3.components.sound.playSound();
           } 
           
           else if (document.querySelector('#mk2').object3D.visible == true) {
@@ -71,9 +71,9 @@
           }
           
           else if (document.querySelector('#mk3').object3D.visible == true) {
-            entity1.components.sound.pauseSound();
+            entity1.components.sound.playSound();
             entity2.components.sound.pauseSound();
-            entity3.components.sound.playSound();
+            entity3.components.sound.pauseSound();
           }
           
           else{
